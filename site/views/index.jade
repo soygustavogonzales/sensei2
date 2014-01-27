@@ -1,0 +1,86 @@
+!!! 5
+html(ng-app, lang="es-PE")
+  head
+    meta(charset="utf-8")
+    title Inicio
+    link(rel="stylesheet",href="styles/css/jquery.mCustomScrollbar.css")
+    link(rel="stylesheet",href="styles/css/styles.css")
+    script(src="http://simplewebrtc.com/latest.js")
+    script(type='text/javascript',src="js/client/jquery-2.0.3.min.js")
+    script(type='text/javascript',src="js/client/angular.min.js")
+    script(type='text/javascript', src='/socket.io/socket.io.js')
+    style
+      #remoteVideo{
+        left:20px;
+        top:20px;
+        height:200px;
+        width:200px;
+        position:absolute;
+        display:inline-block;
+        border:2px dotted black;
+      }
+      #remoteVideo video {
+      width:100%;
+      height:100%;
+      } 
+  body
+    div#web
+      div#pizarra
+        canvas#canvas(width='1400', height='600')
+          |Tu Navegador no soporta canvas.
+      div#remoteVideo
+    div.lateral
+      div.trip
+        i(class="fa fa-comments fa-2x")
+      div.content
+        div#videos
+          video(id="you", autoplay, controls,width="", height="", style="position: absolute; left: 0px; bottom: 0px;")
+        div.sup-content
+          div#chatbox(ng-controller="ListMessage")
+            div#messages(class="scrollable")
+              ul
+                li(ng-repeat="msj in messages",class="buble")
+                  span 
+                    {{msj.message}}
+            div(class="row")
+              div.col-xs-12
+                div.input-group
+                  span.input-group-addon
+                    i(class="fa fa-comment fa-1x")
+                  input(ng-model="new_message", ng-keyup="enviarMensaje($event)" ,class="form-control",id="chat-input", type="text")
+          div.buttonBox
+            div.row
+              div.col-xs-12
+                div.btn-group
+                  div(id="fullscreen", class="btn btn-default",data-toggle="tooltip",data-placement="top",title,data-original-title="Pantalla completa")
+                    i(class="fa fa-arrows-alt")
+                  div(id="newRoom", class="btn btn-default",data-toggle="tooltip",data-placement="top",title,data-original-title="Nueva Sala")
+                    i(class="fa fa-plus-square")
+            div.row
+              div.col-xs-12
+                div.btn-group
+                  div.btn-group
+                    div#plumon(class="btn btn-primary",data-toggle="tooltip",data-placement="top",title,data-original-title="Plumon")
+                      i(class="fa fa-pencil")
+                      input(type="color",class="colorPicker-plumon")
+                    button(type="button",class="btn btn-primary dropdown-toggle",data-toggle="dropdown")
+                      span.caret
+                      span.sr-only|Toggle dropdown
+                    ul.dropdown-menu(role="menu")
+                      li
+                        a
+                          span|Tamaño
+                  div.btn-group
+                    button#eraserButton(type="button",class="btn btn-info",data-toggle="tooltip",data-placement="top",title,data-original-title="Borrador")
+                      i(class="fa fa-eraser")
+                    button(type="button",class="btn btn-info dropdown-toggle", data-toggle="dropdown")
+                      span.caret
+                      span.sr-only|Toggle Dropdown
+                    ul.dropdown-menu(role="menu")
+                      li
+                        a
+                          span#clean|Borrar todo
+    script(type='text/javascript', src="js/client/script.js")
+    script(type='text/javascript', src="js/client/jquery.mCustomScrollbar.concat.min.js")
+    script(type='text/javascript', src="bootstrap/js/bootstrap.min.js")
+    script(type='text/javascript', src='js/client/script_pizarra.js')
