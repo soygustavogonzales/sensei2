@@ -11,7 +11,6 @@ var plumon = {
 	ancho:2,
 	modo:true//modo plumon
 };
-//Comprobamos mediante la librería moderniz que el navegador soporta canvas
 function canvasSupport(){
 	var canvas = document.createElement('canvas');
 	return (canvas.getContext)?true:false;
@@ -248,7 +247,7 @@ function canvasApp() {
 				 videoYou.style.boxSizing = "border-box";
 
   	}
-  		initVideo();
+  		initVideo();//daria lo mismo si convirtiesemos al metodo en un autoejecutable
   	
   	$('canvas').on({
   		"mousedown" : function(e) {//cuando se de baje el boton del mouse

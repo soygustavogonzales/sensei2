@@ -11,7 +11,8 @@
     "express": "3.1.0",
     "ws": "latest",
     "less":"1.5.1",
-    "socket.io":"0.9.16"
+    "socket.io":"0.9.16",
+    "jade":"0.35.0"
   },
   "subdomain": "MultiWebRTC",
   "scripts": {
