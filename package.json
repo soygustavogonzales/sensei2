@@ -6,10 +6,7 @@
     "node": ">= 0.6.0"
   },
   "dependencies": {
-    "webrtc.io": "latest",
-    "webrtc.io-client": "latest",
     "express": "3.1.0",
-    "ws": "latest",
     "less":"1.5.1",
     "socket.io":"0.9.16",
     "jade":"0.35.0"

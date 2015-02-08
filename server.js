@@ -8,7 +8,7 @@ var io = require('socket.io').listen(server);
 io.set('log level',1); //Lo pongo a nivel uno para evitar demasiados logs ajenos a la aplicación.
 
 
-var port = process.env.PORT || 4530;
+var port = process.env.PORT || 4545;
 
 app.configure(function(){
   app.set("port",port);
